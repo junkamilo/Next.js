@@ -1,0 +1,21 @@
+# 1. CAMBIO IMPORTANTE: Usamos node:20-alpine (o superior) para cumplir el requisito
+FROM node:20-alpine
+
+# 2. Creamos la carpeta de trabajo
+WORKDIR /app
+
+# 3. Copiamos el package.json a la carpeta actual (.)
+COPY package.json .
+
+# 4. Instalamos dependencias
+RUN npm install
+
+# 5. Copiamos el resto del código a la carpeta actual (.)
+COPY . .
+
+# 6. Construimos la aplicación
+RUN npm run build
+
+EXPOSE 3000
+
+CMD [ "npm" , "start" ]
