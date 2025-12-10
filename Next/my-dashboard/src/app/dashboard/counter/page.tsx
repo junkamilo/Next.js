@@ -1,4 +1,5 @@
-import { CardCounter } from "@/app/components/shopping"
+import { CardCounter } from "@/components/shopping"
+
 
 
 

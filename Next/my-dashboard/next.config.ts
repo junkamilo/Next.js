@@ -2,11 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   //aca le decimos a next que acepte esta imagenes
-  images:{
-    remotePatterns:[
+  images: {
+    remotePatterns: [
       {
         protocol: 'https',
-        hostname:'images.unsplash.com'
+        hostname: 'raw.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
       },
     ]
   }
