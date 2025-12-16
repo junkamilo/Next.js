@@ -1,6 +1,5 @@
 
-import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
-import Image from "next/image";
+import { FavoritePokemons, PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
 
 
 
@@ -24,7 +23,8 @@ export default async function PokemonsPage() {
         <div className="flex flex-col">
 
             <span className="text-5xl my-2">Listado de Pokemons <small>estatico</small></span>
-            <PokemonGrid pokemons={ [] }/>
+            {/* <PokemonGrid pokemons={ [] }/> */}
+            <FavoritePokemons/>
         </div>
     )
 }
