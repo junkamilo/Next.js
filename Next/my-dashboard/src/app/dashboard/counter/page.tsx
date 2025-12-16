@@ -1,4 +1,5 @@
-import { CardCounter } from "@/components/shopping"
+import { CardCounter } from "@/src/components/shopping"
+
 
 
 
@@ -18,6 +19,7 @@ export default function CounterPage() {
       <span>Productos en el carrito</span>
       
       <CardCounter/>
+      
     </div>
   )
 }

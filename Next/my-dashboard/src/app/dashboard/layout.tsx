@@ -1,4 +1,5 @@
-import { Sidebar } from "@/components";
+import { Sidebar } from "@/src/components";
+
 
 
 export default function DashboardLayout({

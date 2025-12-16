@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 interface Props {
-    params: { id: string };
+    params: { name: string };
 }
 
 //se ejecutara en build time
@@ -17,22 +17,13 @@ export async function generateStaticParams() {
     return static151Pokemons.map(id=>({
         id:id
     }))
-
-    // return[
-    //     {id:1},
-    //     {id:2},
-    //     {id:3},
-    //     {id:4},
-    //     {id:5},
-    //     {id:6},
-    // ]
 }
 
 // Generar Metadata dinámica (Opcional pero recomendado para SEO)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     try {
-        const { id } = await params; // En Next.js 15 params es una promesa
-        const pokemon = await getPokemon(id);
+        const { name } = await params; // En Next.js 15 params es una promesa
+        const pokemon = await getPokemon(name);
         return {
             title: `#${pokemon.id} - ${pokemon.name}`,
             description: `Página del pokemon ${pokemon.name}`
@@ -71,10 +62,10 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
 export default async function PokemonPage({ params }: Props) {
 
     // 2. Esperamos a que los params estén listos (Next.js 15+ requiere await, versiones anteriores no estorba)
-    const { id } = await params;
+    const { name } = await params;
 
     // 3. Esperamos (await) a que la data llegue
-    const pokemon = await getPokemon(id);
+    const pokemon = await getPokemon(name);
 
     return (
         <div className="min-h-screen w-full bg-slate-950 text-slate-300 relative overflow-hidden flex justify-center items-center py-10 px-4">
