@@ -1,0 +1,24 @@
+services:
+  todosDB:
+    # Usamos la versión alpine porque es mucho más ligera (pesa menos MB)
+    image: postgres:15-alpine
+    container_name: todos-db
+    restart: always
+
+    # Mapeo de puertos: "PuertoPC : PuertoContenedor"
+    ports:
+      - "5432:5432"
+
+    # Variables de entorno en formato diccionario (más limpio)
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todos_db # <--- Nombre explícito de tu base de datos
+
+    # Persistencia de datos usando un Volumen Nombrado
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# Definimos el volumen al final
+volumes:
+  postgres_data:
